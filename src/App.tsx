@@ -27,7 +27,7 @@ function Tile({ item }: { item: Item }) {
     <button
       onClick={copy}
       title={item.file}
-      className="group relative flex flex-col items-center gap-2 rounded-xl border bg-card p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-primary hover:shadow-md focus-visible:outline-2 focus-visible:outline-primary"
+      className="group relative flex flex-col items-center gap-2 card-elevated p-3 text-left transition hover:-translate-y-0.5 hover:border-primary hover:shadow-glow focus-visible:outline-2 focus-visible:outline-primary"
     >
       <div className="flex h-20 w-full items-center justify-center rounded-lg bg-[conic-gradient(#0000000d_25%,#0000_0_50%,#0000000d_0_75%,#0000_0)] bg-[length:12px_12px] dark:bg-[conic-gradient(#ffffff12_25%,#0000_0_50%,#ffffff12_0_75%,#0000_0)]">
         {broken ? (
@@ -68,11 +68,11 @@ export default function App() {
   }, [deferred, source, sizes])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-muted/60 to-background">
-      <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-6 py-4">
-          <h1 className="mr-2 text-lg font-semibold tracking-tight">Silwane Icon Finder</h1>
-          <div className="relative min-w-64 flex-1">
+    <div className="min-h-screen bg-background">
+      <header className="sticky top-0 z-10 border-b glass">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4">
+          <h1 className="mr-2 w-full text-lg font-semibold sm:w-auto tracking-tight text-gradient">Silwane Icon Finder</h1>
+          <div className="relative min-w-0 basis-full sm:basis-64 sm:flex-1">
             <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <Input autoFocus value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search by id…" className="pl-9" />
           </div>
@@ -91,9 +91,9 @@ export default function App() {
           </Button>
         </div>
       </header>
-      <main className="mx-auto max-w-7xl px-6 py-6">
+      <main className="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6">
         {shown.length ? (
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(130px,1fr))] gap-3">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(130px,1fr))] gap-3">
             {shown.map((i) => <Tile key={i.id} item={i} />)}
           </div>
         ) : (
