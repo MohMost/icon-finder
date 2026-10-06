@@ -5,7 +5,8 @@ import { join, basename } from 'node:path'
 
 const ROOTS = (process.env.SILWANE_SRC ??
   'C:/Users/Mohamed/projects/silwanenet/src;C:/Users/Mohamed/projects/silwane-net-gateway/src').split(';')
-const REMOTE = 'https://static.silwane.net/images/'
+process.loadEnvFile()
+const REMOTE = process.env.SILWANE_IMAGES_URL
 const EXT = /\.(png|svg|jpe?g|gif)$/i
 const KEY = /\b(?:Image|ImageId|ImageID|ImageName|Img|ImgLocal|icon|imageUrl|image|img)['"]?\s*[:=]\s*([^,;\n}]{0,160})/g
 const STR = /['"`]([A-Za-z0-9_./-]{2,80})['"`]/g
